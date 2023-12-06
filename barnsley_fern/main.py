@@ -1,11 +1,11 @@
 import pygame
-from Sierpinski import Sierpinski
+from Barnsley import Barnsley
 
-WINDOW_SIZE = (1000, 900)
+WINDOW_SIZE = (1200, 900)
 FPS = 60
 
-VERTEX = [(500, 50), (50, 850), (930, 800)]
-STARTING_POINT = (500, 450)
+SCALE_X = (-6, 6)
+SCALE_Y = (-1, 11)
 
 def main():
     pygame.init()
@@ -13,9 +13,9 @@ def main():
     screen = pygame.display.set_mode(WINDOW_SIZE)
     done = False
 
-    s = Sierpinski(VERTEX, STARTING_POINT)
+    b = Barnsley(SCALE_X, SCALE_Y, WINDOW_SIZE)
 
-    pygame.display.set_caption("Sierpinski triangle")
+    pygame.display.set_caption("Barnsley fern")
 
     while not done:
         pygame.time.Clock().tick(FPS)
@@ -24,11 +24,11 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
 
-        s.update()
+        b.update()
 
         screen.fill((0, 0, 0))
 
-        s.draw(screen)
+        b.draw(screen)
 
         pygame.display.flip()
 
