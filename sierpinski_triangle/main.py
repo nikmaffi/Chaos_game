@@ -23,6 +23,8 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
+            if event.type == pygame.KEYUP and event.key == pygame.K_F11:
+                pygame.image.save(screen, "screenshot.png")
 
         s.update()
 
